@@ -1,0 +1,19 @@
+name: Fetch changelogs
+on:
+  workflow_dispatch:
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Fetch sitemap
+        run: wget https://feedback.minecraft.net/hc/sitemap.xml > sitemap.xml
+          
+      - name: Fetch articles
+        run: |
+          for a in `grep -E "preview"`
+          do
+            echo $a
+          done
