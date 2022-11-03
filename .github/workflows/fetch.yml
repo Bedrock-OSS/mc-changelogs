@@ -11,9 +11,8 @@ jobs:
 
       - name: Fetch sitemap
         run: |
-          wget \ 
-            -U "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" \
-            https://feedback.minecraft.net/hc/sitemap.xml > sitemap.xml
+          # Bypass bot block with user agent hack. Basic but works most the time
+          wget -U "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" https://feedback.minecraft.net/hc/sitemap.xml > sitemap.xml
           
       - name: Fetch articles
         run: |
